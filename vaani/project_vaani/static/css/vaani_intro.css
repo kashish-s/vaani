@@ -1,0 +1,70 @@
+/*DESKTOP VIEW*/
+body{
+	background-color: #1F1D36 ;
+	/*background: linear-gradient(to right, #eecdfb 0%, #d6a9e7 100%);*/
+	margin: 1%;
+	padding:1%;
+}
+
+header{
+	color: #E9A6A6;
+	padding: 20px;
+	text-align: center;
+	font-family: "Source Sans Pro";
+	font-size: 50px; 
+	box-sizing: border-box;
+	margin-bottom: 100px;
+}
+
+button{
+
+	color:  #FBECEC ; 
+	background-color: #3F3351  ;
+	display: flex;
+	margin:  auto;
+	margin-top: 10px;
+	width: 30%;
+	text-align: center;
+	padding: 20px 40px 20px 40px;
+	font-size: 30px;
+	border-radius: 20px;
+	font-family: "Calibri",Arial;
+	cursor: pointer;
+
+}
+
+button:hover{
+	color: #3F3351  ; 
+	background-color: #FBECEC  ;
+
+	
+}
+
+h1{
+	color:#E9A6A6;
+	text-align: center;
+	margin-top: 50px;
+	font-family: "Source Sans Pro";
+
+}
+
+p{
+	color: white;
+	text-align: center;
+	width: 50%;
+	font-family: "Arial";
+	margin: auto;
+	box-sizing: content-box;
+}
+
+h2{
+	color: #E9A6A6;
+	padding: 20px;
+	text-align: center;
+	font-family: "Source Sans Pro";
+	font-size: 50px; 
+	box-sizing: border-box;
+	margin-top: 200px;
+	margin-bottom: 100px;
+}
+

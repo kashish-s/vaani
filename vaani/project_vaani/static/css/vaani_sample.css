@@ -1,0 +1,28 @@
+body{
+	background-color: #1F1D36 ;
+	/*background: linear-gradient(to right, #eecdfb 0%, #d6a9e7 100%);*/
+	margin: 1%;
+	padding:1%;
+}
+
+p{
+	color: white;
+	font-size: 25px;
+}
+
+li{
+	color: #e3e3e3;
+	padding: 40px 20px 10px 10px;
+	margin: 10px 10px 10px 10px;
+	border-radius: 5px;
+	font-family: "Calibri",Arial;
+
+}
+  
+audio{
+	display: flex;
+	flex-direction: row;
+  	align-items: center;
+  	width: 40%;
+  	margin-top: 10px;
+}

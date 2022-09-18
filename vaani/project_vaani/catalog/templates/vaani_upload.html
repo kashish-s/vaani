@@ -1,0 +1,100 @@
+{% extends 'vaani_intro.html' %}
+{% block content %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'img/music.png'%}" type="image/png">
+    <title>Upload audio</title>
+    <style media="screen">
+        body{
+        background-color: #1F1D36 ;
+        margin: 1%;
+        padding:1%;
+}
+       #custom-button {
+            color:  #FBECEC ; 
+            background-color: #3F3351  ;
+            text-align: center;
+            margin-top: 250px;
+            margin-left: 100px ;
+            margin-right: 50px;
+            padding: 20px 30px 20px 30px;
+            font-size: 30px;
+            border-radius: 20px;
+            font-family: "Calibri",Arial;
+            cursor: pointer;
+            } 
+
+       #custom-button:hover{
+            background-color:#FBECEC;
+            color: #3F3351;
+            }
+
+       #custom-text {
+            margin-left: 5px;
+            font-family: sans-serif;
+            color: #FBECEC ;
+            }
+
+       button{
+            color:  #FBECEC ; 
+            background-color: #3F3351  ;
+            text-align: center;
+            /*display: block;*/
+            margin-top: 100px;
+            margin-left: 7% ;
+            padding: 20px 30px 20px 30px;
+            font-size: 30px;
+            border-radius: 20px;
+            font-family: "Calibri",Arial;
+            cursor: pointer;
+            }    
+
+       button:hover{
+            color:  #3F3351 ; 
+            background-color: #FBECEC  ;
+       }     
+    </style>
+</head>
+<body>
+    <input type="file" id="real-file" hidden="hidden" />
+    
+    
+    <form action="audio" method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        {{ form }} 
+        <button type="button" id="custom-button">CHOOSE A FILE</button>
+        <span id="custom-text">No file chosen, yet.</span>
+    </form>
+
+    <script type="text/javascript">
+        const realFileBtn = document.getElementById("real-file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+    customBtn.addEventListener("click", function() {
+    realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function() {
+        if (realFileBtn.value) {
+            customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+    } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+
+    </script>
+
+    <div id="center">
+        <a href="{% url 'results' %}"><button>Find results here!</button></a>
+    </div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static %}
+{%block content%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link rel="stylesheet" href="{% static 'css/vaani_intro.css' %}" />
+  <link rel="shortcut icon" href="{% static 'img/globe.png' %}" type="image/png" />
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<head>
+
+<body>
+
+
+
+	<header>This is VAANI!</header>
+	<a href="#vaani_choose"><button>Time to test your skills</button></a>
+	<br></br>
+    <h1>What is VAANI?</h1>
+    <p><strong>VAANI - </strong>A Gamified Vocal Training System, a multi-purpose system based on pitch detection of audio signals and accomplishing pattern matching, thus dispensing a resemblance score and aiding novice singers to rectify their inaccuracies.</p>
+    <p> The major algorithmic modules, therefore, are pitch estimation and melodic similarity distance computation.</p>
+    <div id = "vaani_choose">
+        <h2>Select the song you want to record</h2>
+        <!--<a href="{% url 'test' %}"><button id = '1' onClick = "GFG_click(this.id)">Enna Sonna</button></a>
+        <a href="{% url 'test' %}"><button id = '2' onClick = "GFG_click(this.id)">Raabta</button></a>
+        <a href="{% url 'test' %}"><button id = '3' onClick = "GFG_click(this.id)">Sooraj Dooba hai Yaaron</button></a>
+        <a href="{% url 'test' %}"><button id = '4' onClick = "GFG_click(this.id)">Gulaabi Ankheinn</button></a>-->
+
+        {% for song in songs %}
+        <a href="{% url 'test' %}"><button type="button" id="songselect" class="btn" value="{{song}}">{{song}}</button></a>
+
+        {%endfor%}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+      var data = new FormData();
+      $(document).on('click', '#songselect', function(e) {
+      data.append('action', 'toggle_button')
+      data.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+      data.append('id', $(this).val())
+      $.ajax({
+          type: 'POST',
+          url: "{% url 'intro' %}",
+          data: data,
+          cache: false,
+          processData: false,
+          contentType: false,
+          enctype: 'multipart/form-data',
+        })
+})
+</script>
+    </div>
+
+    
+
+	
+</body>
+
+</html>
+{%endblock%}
